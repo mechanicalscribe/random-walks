@@ -34,14 +34,17 @@
 		function draw(points) {
 			var native_width = x_max - x_min + MARGIN * 2;
 			var native_height = y_max - y_min + MARGIN * 2;
+			console.log(native_width);
 			var real_width = document.getElementById(container).offsetWidth;
-			console.log(native_width, native_height, real_width);
-
-			canvas.width = native_width;
-			canvas.height = native_height;
-
-			// var scale = document.getElementById(container).innerWidth / native_width;
-			// context.scale(scale, scale);
+			if (real_width < native_width) {
+				var scale = real_width / native_width;
+				canvas.width = real_width;
+				canvas.height = native_height * scale;
+				context.scale(scale, scale);
+			} else {
+				canvas.width = native_width;
+				canvas.height = native_height;
+			}
 
 			context.strokeStyle = 'rgba(0, 0, 0, 0.25)';
 
