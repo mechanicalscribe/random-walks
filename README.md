@@ -13,7 +13,9 @@ After requiring or including `random-walks.js`, just instantiate inside a contai
     	<div id="canvas"></div>
     	<script src="random-walks.js"></script>
     	<script>
-		randomWalks("canvas", 50000);
+		var rw = randomWalks("canvas", 50000);
     	</script>
 
 The first argument is that container ID, the second is the number of iterations.
+
+The object returned has two methods: `update` and `animate`. Update takes a number of steps and updates the visual, nixing the earliest number of steps and adding the same number to the front. `animate`, which calls `update`, takes a number of steps and an interval for how often to run `update` (in milliseconds).
