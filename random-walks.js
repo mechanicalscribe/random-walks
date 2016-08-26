@@ -64,13 +64,20 @@
 				} else {
 					y += movement;
 				}
-				x_min = Math.min(x_min, x);
-				x_max = Math.max(x_max, x);
-				y_min = Math.min(y_min, y);
-				y_max = Math.max(y_max, y);
+				// x_min = Math.min(x_min, x);
+				// x_max = Math.max(x_max, x);
+				// y_min = Math.min(y_min, y);
+				// y_max = Math.max(y_max, y);
 				points.shift();
 				points.push([x,y]);
 			}
+			x_points = points.map(function(d) { return d[0]; });
+			y_points = points.map(function(d) { return d[1]; });			
+			x_min = getMinOfArray(x_points);
+			x_max = getMaxOfArray(x_points);
+			y_min = getMinOfArray(y_points);
+			y_max = getMaxOfArray(y_points);
+			console.log(x_min, x_max, y_min, y_max);
 			draw(points);
 		}
 
@@ -86,6 +93,14 @@
 			update: update,
 			animate: animate
 		}
+	}
+
+	function getMinOfArray(numArray) {
+		return Math.min.apply(null, numArray);
+	}
+
+	function getMaxOfArray(numArray) {
+		return Math.max.apply(null, numArray);
 	}
 
 	// thx, http://stackoverflow.com/questions/17525215/calculate-color-values-from-green-to-red
