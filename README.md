@@ -1,7 +1,7 @@
 # Random Walks
 Playing with Random Walks visualizations in Canvas
 
-![an example](example.png)
+![an example](example_color.png)
 
 ## Demo
 Just open [demo.html](demo.html) to see it in action.
