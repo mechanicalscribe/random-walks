@@ -13,7 +13,7 @@ After requiring or including `random-walks.js`, just instantiate inside a contai
     	<div id="canvas"></div>
     	<script src="random-walks.js"></script>
     	<script>
-		var rw = randomWalks("canvas", 50000);
+		var rw = randomWalks("canvas", 10000);
     	</script>
 
 The first argument is that container ID, the second is the number of iterations.
